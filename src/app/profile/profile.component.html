@@ -1,0 +1,117 @@
+<div class="main-wrap">
+
+    <div class="left-content">
+        <div class="head-response">
+            <div class="left-head-response">
+              <div class="head-value">
+                123 505
+              </div>
+                <div class="knko" routerLink="/knko">
+                    KNKO
+                </div>
+            </div>
+            <div class="right-head-response">
+                <div class="head-value">
+
+                </div>
+                <div class="knko">
+                  bibahadid92
+                </div>
+              </div>
+            <div class="right-head-response">
+              <div class="head-value" >
+                <img style="width: 30px;" src="assets\img\VectorSmartObject.png" alt="">
+                1000
+              </div>
+              <div class="knko" routerLink="/k-points" >
+                K-Points
+              </div>
+            </div>
+          </div>
+      <div class="head-inside-left-wrap">
+        <h1 class="main-caption margin ">
+          <span class="mobil-elemtnt"> {{ 'MY_PROFILE.YOU' | translate }} </span> {{ 'MY_PROFILE.Details' | translate }}
+        </h1>
+        <button class="button btn-settings verify-btn">
+          Verify ID
+        </button>
+      </div>
+       <div class="lable padding-left">
+          {{ 'MY_PROFILE.NAME' | translate }}
+       </div>
+       <div class="value padding-left">
+        Biba Hadid
+       </div>
+       <div class="lable padding-left">
+          {{ 'MY_PROFILE.USERNAME' | translate }}
+        </div>
+        <div class="value padding-left">
+         bibahadi92
+        </div>
+        <div class="lable padding-left">
+         E-mail*
+        </div>
+        <div class="value padding-left">
+            biba.hadi@gmail.com
+        </div>
+        <div class="lable padding-left">
+            {{ 'MY_PROFILE.NATIONALITY' | translate }}
+        </div>
+        <div class="value padding-left">
+         <img style="width: 35px; margin-right: 10px;" src="assets\img\malarge.png" alt="">
+          Kingdom of Morocco
+        </div>
+        <div class="lable padding-left">
+            {{ 'MY_PROFILE.ETH' | translate }}
+        </div>
+        <div class="input-wrap">
+            <input placeholder="Enter ETH Address" type="text">
+         </div>
+
+    </div>
+    <div class="right-content">
+      <h1 class="main-caption margin-bot-mobil" style="margin-bottom: 52px;">
+          <span class="mobil-elemtnt">{{ 'MY_PROFILE.YOU' | translate }} </span> {{ 'MY_PROFILE.Address' | translate }}
+      </h1>
+      <div class="lable">
+          {{ 'MY_PROFILE.STREET' | translate }}
+       </div>
+       <div class="value">
+        Baltimore Heights Block G Apartment 6, Triq Ignatius
+       </div>
+       <div class="flex-box">
+         <div class="margin-ritht-100">
+            <div class="lable">
+                Zip Code*
+              </div>
+              <div class="value">
+               94103
+              </div>
+         </div>
+         <div>
+            <div class="lable">
+                {{ 'MY_PROFILE.PROVINCE' | translate }}/{{ 'MY_PROFILE.CITY' | translate }}
+              </div>
+              <div class="value">
+               San Francisco
+              </div>
+         </div>
+       </div>
+       <div class="lable">
+          {{ 'MY_PROFILE.COUNTRY' | translate }}
+        </div>
+        <div class="value">
+          <img style="width: 35px; margin-right: 10px;" src="assets\img\flag-usa.png" alt="">
+         United States of America
+        </div>
+        <div class="button-update-wrap">
+        <button class="button btn-settings">
+          Upload Address Proof
+        </button>
+       </div>
+       <div class="text-bot">
+          {{ 'MY_PROFILE.TEXT_BOT' | translate }}
+       </div>
+    </div>
+  </div>
+  <app-congratulations *ngIf="showCongratulation"></app-congratulations>

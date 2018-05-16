@@ -1,0 +1,307 @@
+<div class="main-wrap">
+  <div class="header-wrap">
+    <div class="logo-wrap">
+      <div>
+        <!-- {{ 'HOME.TITLE' | translate }} -->
+        <!-- <img src="assets\img\XCZCZXCZ.png" alt="" style="width: 125px;margin-right: 20px;"> -->
+         <div class="logo">
+          <object data="assets\svg\Logo.svg" type="image/svg+xml">
+
+          </object>
+         </div>
+      </div>
+     <div class="dropdawn-wrap dropdawn-wrap-lang">
+      <button (click)="showLangLarge = !showLangLarge" class="button button-lang" class="button button-lang">
+        <span>
+          {{selectedLang}}
+        </span>
+        <!-- <img [ngClass]="{'revert-img': showLangLarge}" class="arrow" src="assets\svg\down-arrow(2).svg" alt=""> -->
+        <span *ngIf="showLangLarge">
+            <div class="w-icon-dropdown-toggle rotated"></div>
+        </span>
+        <span *ngIf="!showLangLarge">
+            <div class="w-icon-dropdown-toggle"></div>
+        </span>
+
+        <!-- <object data="assets\svg\down-arrow.svg" type="image/svg+xml">
+
+        </object> -->
+      </button>
+      <!-- <div *ngIf="showLangLarge" class="dropdawn dropdawn-lang dropdown-inner">
+          <span *ngFor="let item of langs">
+            {{item}}
+          </span>
+          <a  *ngFor="let item of langs" class="dropdown-link dl-top w-dropdown-link">Français</a>
+
+      </div> -->
+      <div *ngIf="showLangLarge" class="dropdown-list w-dropdown-list w--open">
+        <div class="dropdown-inner">
+          <span *ngFor="let item of langs; let i = index">
+              <a *ngIf="selectedLang !== item.key.toUpperCase()" [ngClass]="{'dl-top': i === 0}" (click)="changeLang(item.key)" class="dropdown-link  w-dropdown-link">
+            {{ item.title}}
+            </a>
+
+          </span>
+
+          <div class="dropdown-grad-overlay"></div>
+        </div>
+      </div>
+     </div>
+      <!-- <select #langSelect (change)="translate.use(langSelect.value)">
+        <option *ngFor="let lang of translate.getLangs()" [value]="lang" [selected]="lang === translate.currentLang">{{ lang }}</option>
+      </select> -->
+    </div>
+    <div class="user-logo">
+      <div class="user-img">
+        <div>
+          <img src="assets\img\user.png" alt="">
+        </div>
+        <span class="circle-wrap">
+            <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52"><circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/><path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/></svg>
+        </span>
+        <div class="dropdawn-wrap" style="margin-left:10px;">
+          <button (click)="showDropdawnUser = !showDropdawnUser" class="user-name button">
+         <span *ngIf="user">
+                {{user.user.username}}
+              </span>
+            <!-- <img [ngClass]="{'revert-img': showDropdawnUser}" class="arrow" src="assets\img\down-arrow.png" alt=""> -->
+            <span *ngIf="showDropdawnUser">
+                <div class="w-icon-dropdown-toggle rotated"></div>
+            </span>
+            <span *ngIf="!showDropdawnUser">
+                <div class="w-icon-dropdown-toggle"></div>
+            </span>
+          </button>
+          <div *ngIf="showDropdawnUser" class="dropdawn dropdawn-user">
+                <button class="button border-btn" (click)="go('/k-points')" >
+                  <img style="width: 23px; margin-right: 10px;" src="assets\img\VectorSmartObject.png" alt="">
+                  <span class="valuea-k-points">1000</span> K-Points
+                </button>
+                <button class="button border-btn">
+                  <!-- <img src="assets\img\img-logo-img.png" style="margin-right: 9px; margin-left: 10px;" alt=""> -->
+                  <i class="far fa-images icon-images"></i>
+                  {{ 'HEADER.UPLOAD' | translate }}
+                </button>
+                <button class="button">
+                  <!-- <img src="assets\img\massege-icon.png" style="margin-left: 5px; margin-right: 7px;" alt=""> -->
+                  <i class="far fa-comments icon-comments"></i>
+                  {{ 'HEADER.HELP' | translate }}
+                </button>
+                <button class="button log-out" (click)="logout()">
+                  <!-- <img src="assets\img\logout.png" style="margin-left: 4px; margin-right: 11px;" alt=""> -->
+                  <i class="fas fa-power-off icon-power-off"></i>
+                  {{ 'HEADER.LOGOUT' | translate }}
+                </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+ <div class="header-wrap-response" [style.height.px]="path === '/home' || path === '/profile' || path == '/k-points' || path == '/knko' ? '166' : '51'">
+      <div *ngIf="path == '/home' || path == '/profile' || path == '/k-points' || path == '/knko' " class="home-wrap-response">
+      <div class="response-head">
+
+            <div class="logo-wrap">
+                <div>
+                  <!-- {{ 'HOME.TITLE' | translate }} -->
+                  <!-- <img src="assets\img\XCZCZXCZ.png" alt="" style="width: 125px;margin-right: 20px;"> -->
+                   <div class="logo">
+                    <object data="assets\svg\Logo-mobil.svg" type="image/svg+xml">
+
+                    </object>
+                   </div>
+                </div>
+               <div class="dropdawn-wrap dropdawn-wrap-lang" [ngClass]="{'hide' : navigations}">
+                <button (click)="showLangLarge = !showLangLarge" class="button button-lang" class="button button-lang">
+                  <span>
+                    EN
+                  </span>
+                  <!-- <img [ngClass]="{'revert-img': showLangLarge}" class="arrow" src="assets\svg\down-arrow(2).svg" alt=""> -->
+                    <span *ngIf="showLangLarge">
+                        <div class="w-icon-dropdown-toggle rotated"></div>
+                    </span>
+                    <span *ngIf="!showLangLarge">
+                        <div class="w-icon-dropdown-toggle"></div>
+                    </span>
+                  <!-- <object data="assets\svg\down-arrow.svg" type="image/svg+xml">
+
+                  </object> -->
+                </button>
+                <!-- <div *ngIf="showLangLarge" class="dropdawn dropdawn-lang dropdown-inner">
+                    <span *ngFor="let item of langs">
+                      {{item}}
+                    </span>
+                    <a  *ngFor="let item of langs" class="dropdown-link dl-top w-dropdown-link">Français</a>
+
+                </div> -->
+                <div *ngIf="showLangLarge" class="dropdown-list w-dropdown-list w--open">
+                  <div class="dropdown-inner"><a href="fr.html" class="dropdown-link dl-top w-dropdown-link">Français</a><a href="pt.html" class="dropdown-link w-dropdown-link">Português</a><a href="es.html" class="dropdown-link w-dropdown-link">Español</a><a href="ru.html" class="dropdown-link w-dropdown-link">русский</a><a href="ar.html" class="dropdown-link w-dropdown-link">عربى</a><a href="jp.html" class="dropdown-link w-dropdown-link">日本語</a><a href="kr.html" class="dropdown-link w-dropdown-link">한국어</a><a href="cn.html" class="dropdown-link dl-bottom w-dropdown-link">中文</a>
+                    <div class="dropdown-grad-overlay"></div>
+                  </div>
+                </div>
+               </div>
+                <!-- <select #langSelect (change)="translate.use(langSelect.value)">
+                  <option *ngFor="let lang of translate.getLangs()" [value]="lang" [selected]="lang === translate.currentLang">{{ lang }}</option>
+                </select> -->
+              </div>
+            <div class="burger-wrap" (click)="navigations = !navigations" [ngClass]="{'burger-active': navigations}">
+                <i class="fas fa-bars"></i>
+              <!-- <img src="assets\img\menu.png" alt="" style="width: 30px;"> -->
+            </div>
+      </div>
+      <div class="user-logo" >
+        <div class="user-img">
+          <div>
+            <img src="assets\img\user.png" alt="">
+          </div>
+          <span class="some-circle">
+            <img src="assets\img\1th-line.png" alt="">
+            <img src="assets\img\2th-line.png" alt="">
+            <img src="assets\img\3th-line.png" alt="">
+            <img src="assets\img\4th-line.png" alt="">
+          </span>
+          <span class="circle-wrap">
+                        <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52"><circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/><path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/></svg>
+          </span>
+          <div class="dropdawn-wrap" style="margin-left:10px;">
+            <button class="user-name button">
+              <span *ngIf="user">
+                {{user.user.username}}
+              </span>
+              <img class="arrow" src="assets\img\down-arrow.png" alt="">
+            </button>
+          </div>
+        </div>
+      </div>
+      </div>
+     <div *ngIf="path != '/home' && path != '/profile' &&  path != '/k-points' && path != '/knko' " class="referrals-wrap-response">
+         <div class="response-head">
+
+             <div class="logo-wrap">
+                 <div>
+                     <!-- {{ 'HOME.TITLE' | translate }} -->
+                     <!-- <img src="assets\img\XCZCZXCZ.png" alt="" style="width: 125px;margin-right: 20px;"> -->
+                     <div class="logo">
+                         <object data="assets\svg\Logo-mobil.svg" type="image/svg+xml">
+
+                         </object>
+                     </div>
+                 </div>
+                 <div class="dropdawn-wrap dropdawn-wrap-lang" [ngClass]="{'hide' : navigations}">
+                     <button (click)="showLangLarge = !showLangLarge" class="button button-lang" class="button button-lang">
+                  <span>
+                    EN
+                  </span>
+                         <!-- <img [ngClass]="{'revert-img': showLangLarge}" class="arrow" src="assets\svg\down-arrow(2).svg" alt=""> -->
+                         <span *ngIf="showLangLarge">
+                        <div class="w-icon-dropdown-toggle rotated"></div>
+                    </span>
+                         <span *ngIf="!showLangLarge">
+                        <div class="w-icon-dropdown-toggle"></div>
+                    </span>
+                         <!-- <object data="assets\svg\down-arrow.svg" type="image/svg+xml">
+
+                         </object> -->
+                     </button>
+                     <!-- <div *ngIf="showLangLarge" class="dropdawn dropdawn-lang dropdown-inner">
+                         <span *ngFor="let item of langs">
+                           {{item}}
+                         </span>
+                         <a  *ngFor="let item of langs" class="dropdown-link dl-top w-dropdown-link">Français</a>
+
+                     </div> -->
+                     <div *ngIf="showLangLarge" class="dropdown-list w-dropdown-list w--open">
+                         <div class="dropdown-inner"><a href="fr.html" class="dropdown-link dl-top w-dropdown-link">Français</a><a href="pt.html" class="dropdown-link w-dropdown-link">Português</a><a href="es.html" class="dropdown-link w-dropdown-link">Español</a><a href="ru.html" class="dropdown-link w-dropdown-link">русский</a><a href="ar.html" class="dropdown-link w-dropdown-link">عربى</a><a href="jp.html" class="dropdown-link w-dropdown-link">日本語</a><a href="kr.html" class="dropdown-link w-dropdown-link">한국어</a><a href="cn.html" class="dropdown-link dl-bottom w-dropdown-link">中文</a>
+                             <div class="dropdown-grad-overlay"></div>
+                         </div>
+                     </div>
+                 </div>
+                 <!-- <select #langSelect (change)="translate.use(langSelect.value)">
+                   <option *ngFor="let lang of translate.getLangs()" [value]="lang" [selected]="lang === translate.currentLang">{{ lang }}</option>
+                 </select> -->
+             </div>
+             <div class="burger-wrap" (click)="navigations = !navigations" [ngClass]="{'burger-active': navigations}">
+                 <i class="fas fa-bars"></i>
+                 <!-- <img src="assets\img\menu.png" alt="" style="width: 30px;"> -->
+             </div>
+         </div>     </div>
+    </div>
+
+  <div class="menu-wrap-outer menu-wrap-mobil-page" *ngIf="navigations" [@enterAnimation]>
+    <div class="menu-wrap">
+      <div (click)="go('/dashboard/home')" [ngClass]="{'active-tab': path === '/dashboard/home'}">
+        <img *ngIf=" path !== '/dashboard/home'" src="assets\img\Home-inactive.png" alt="">
+        <img *ngIf=" path === '/dashboard/home'" src="assets\img\Home.png" alt="">
+        {{ 'HEADER.HOME' | translate }}
+      </div>
+      <div (click)="go('/dashboard/buy-knko')" [ngClass]="{'active-tab': path === '/dashboard/buy-knko'}">
+        <img *ngIf=" path !== '/dashboard/buy-knko'" src="assets\img\BUY-KNKO.png" alt="">
+        <img *ngIf=" path === '/dashboard/buy-knko'" src="assets\img\BUY-KNKO-active.png" alt="">
+        {{ 'HEADER.BYKNKO' | translate }}
+      </div>
+      <div (click)="go('/dashboard/withdraw')" [ngClass]="{'active-tab': path === '/dashboard/withdraw'}">
+        <img *ngIf=" path !== '/dashboard/withdraw'" src="assets\img\WITHDRAW.png" alt="">
+        <img *ngIf=" path === '/dashboard/withdraw'" src="assets\img\WITHDRAW-active.png" alt="">
+        {{ 'HEADER.WITHDRAW' | translate }}
+      </div>
+      <div (click)="go('/dashboard/referrals')" [ngClass]="{'active-tab': path === '/dashboard/referrals'}">
+        <img *ngIf=" path !== '/dashboard/referrals'" src="assets\img\REFERRALS.png" alt="">
+        <img *ngIf=" path === '/dashboard/referrals'" src="assets\img\REFERRALS-active.png" alt="">
+        {{ 'HEADER.REFERRALS' | translate }}
+      </div>
+      <div (click)="go('/dashboard/settings')" [ngClass]="{'active-tab': path === '/dashboard/settings'}">
+        <img *ngIf=" path !== '/dashboard/settings'" src="assets\img\SETTINGS.png" alt="">
+        <img *ngIf=" path === '/dashboard/settings'" src="assets\img\SETTINGS-active.png" alt="">
+        {{ 'HEADER.SETTINGS' | translate }}
+      </div>
+    </div>
+    <div (click)="go('/dashboard/profile')" class="my-profile" [ngClass]="{'active-tab': path === '/dashboard/profile'}">
+      <div>
+        {{ 'HEADER.PROFILE' | translate }}
+      </div>
+    </div>
+    <div class="special-buttons-holder btn-group-menu">
+        <a href="#" class="nav-gradient-button w-inline-block button-bot" data-ix="show-whitelist">
+          <div class="grad-button-text">{{ 'HEADER.TOKENS' | translate }}</div>
+        </a>
+        <a href="#" class="nav-gradient-button w-inline-block button-bot"  (click)="logout()">
+          <div class="grad-button-text"> {{ 'HEADER.LOGOUT' | translate }}</div>
+        </a>
+      </div>
+  </div>
+  <div class="menu-wrap-outer menu-wrap-large-page">
+      <div class="menu-wrap">
+        <div (click)="go('/dashboard/home')" [ngClass]="{'active-tab': path === '/dashboard/home'}">
+          <img *ngIf=" path !== '/dashboard/home'" src="assets\img\Home-inactive.png" alt="">
+          <img *ngIf=" path === '/dashboard/home'" src="assets\img\Home.png" alt="">
+          {{ 'HEADER.HOME' | translate }}
+        </div>
+        <div (click)="go('/dashboard/buy-knko')" [ngClass]="{'active-tab': path === '/buy-knko'}">
+          <img *ngIf=" path !== '/dashboard/buy-knko'" src="assets\img\BUY-KNKO.png" alt="">
+           <img *ngIf=" path === '/dashboard/buy-knko'" src="assets\img\BUY-KNKO-active.png" alt="">
+           {{ 'HEADER.BYKNKO' | translate }}
+        </div>
+        <div (click)="go('/dashboard/withdraw')" [ngClass]="{'active-tab': path === '/withdraw'}">
+          <img *ngIf=" path !== '/dashboard/withdraw'" src="assets\img\WITHDRAW.png" alt="">
+           <img *ngIf=" path === '/dashboard/withdraw'" src="assets\img\WITHDRAW-active.png" alt="">
+           {{ 'HEADER.WITHDRAW' | translate }}
+        </div>
+        <div (click)="go('/dashboard/referrals')" [ngClass]="{'active-tab': path === '/referrals'}">
+          <img *ngIf=" path !== '/dashboard/referrals'" src="assets\img\REFERRALS.png" alt="">
+           <img *ngIf=" path === '/dashboard/referrals'" src="assets\img\REFERRALS-active.png" alt="">
+           {{ 'HEADER.REFERRALS' | translate }}
+        </div>
+        <div (click)="go('/dashboard/settings')" [ngClass]="{'active-tab': path === '/settings'}">
+          <img *ngIf=" path !== '/dashboard/settings'" src="assets\img\SETTINGS.png" alt="">
+           <img *ngIf=" path === '/dashboard/settings'" src="assets\img\SETTINGS-active.png" alt="">
+           {{ 'HEADER.SETTINGS' | translate }}
+        </div>
+      </div>
+      <div (click)="go('/dashboard/profile')" class="my-profile" [ngClass]="{'active-tab': path === '/profile'}">
+        <div>
+            {{ 'HEADER.PROFILE' | translate }}
+        </div>
+      </div>
+    </div>
+</div>
+
